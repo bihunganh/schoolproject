@@ -1,0 +1,8 @@
+# schoolproject
+Web tính calo siêu hữu dụng bởi Nam Anh
+
+Giảm thiểu lượng calo, là nguyên tắc căn bản nhất khi chúng ta lên thực đơn giảm cân. Có rất nhiều phương pháp giảm cân khác nhau như giảm cân bằng phương pháp Keto, giảm cân Low carb, nhịn ăn giảm cân, chạy bộ giảm cân...
+
+Tuy nhiên, cho dù là phương pháp nào cũng phải dựa trên một nguyên tắc đó là calo nạp vào phải thấp hơn calo tiêu dùng hay đơn giản là cắt giảm calo.
+
+Mặc dù vậy không phải ai cũng biết cách làm đúng. Web này sẽ giúp bạn tính toán lượng calo để cắt giảm calo đúng hướng dễ dàng.
