@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calories tracking app</title>
+    <link rel="stylesheet" href="css/style_main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script src="js/script_main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/63c89c613b.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <!-- chuong trinh chinh -->
+    <header>
+      <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+      <div class="search-bar">
+        <input
+          type="text"
+          class="search-field"
+          id="foodSearch"
+          placeholder="Type in the ingredient"
+        />
+        <button
+          class="fa-solid fa-magnifying-glass"
+          onclick="findFood(document.getElementById('foodSearch').value)"
+        ></button>
+      </div>
+      <div class="user">
+        <button
+          class="fa-solid fa-utensils cart-btn"
+          id="cartbtn"
+          onclick="showCart()"
+        ></button>
+        <img src="#" alt="user's pfp" />
+      </div>
+    </header>
+    <div class="flex-body">
+      <div class="side-bar" id="side_bar">
+        <a href="index_main.html"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="index_calc.html"
+          ><i class="fa-solid fa-calculator"></i>Caculator</a
+        >
+      </div>
+      <main>
+        <!-- danh sach thuc an tim dc -->
+        <ul id="foodlist" class="foodlist"></ul>
+        <!-- man hinh 404 neu ko tim thay -->
+        <div class="not-found" id="not-found">
+          <h3>Error 404</h3>
+          <div>The food you searched is not in our database.</div>
+        </div>
+        <!-- hien thi thong tin chi tiet thuc an -->
+        <div id="selectedfood-popup" class="popup">
+          <div class="popup-content">
+            <div>
+              <span class="close" onclick="closePopup()">&times;</span>
+              <p id="popupContent"></p>
+              <p id="servings_prompt">Your servings:</p>
+              <input
+                type="number"
+                id="servings"
+                class="servings"
+                placeholder="Default: 100g"
+                min="0"
+              />
+              <i id="unit">g</i>
+            </div>
+            <button
+              id="addToCartBtn"
+              onclick="addToCart(document.getElementById('popupContent').dataset.index);"
+            >
+              Add to your today menu
+            </button>
+          </div>
+        </div>
+        <!-- man hinh menu -->
+        <div id="cart" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <ul id="cartlist"></ul>
+            <h4 id="total_calo">Today's total calories:</h4>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2023 Biệt đội báo thù</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calories Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style_calc.css" />
+    <script src="js/script_calc.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/63c89c613b.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+      <div class="calculator">
+        <h1>Calculator</h1>
+      </div>
+      <div class="user">
+        <button
+          class="fa-solid fa-utensils cart-btn"
+          id="cartbtn"
+          onclick="showCart()"
+        ></button>
+        <img src="#" alt="user's pfp" />
+      </div>
+    </header>
+    <div class="flex-body">
+      <div class="side-bar" id="side_bar">
+        <a href="index_main.html"><i class="fa-solid fa-house"></i>Home</a>
+        <br />
+        <a href="index_calc.html"
+          ><i class="fa-solid fa-calculator"></i>Caculator</a
+        >
+      </div>
+      <main>
+        <div class="container my-5">
+          <form class="card" id="calo_form" action="">
+            <div class="card-header text-center">
+              <h5>Calories Calculator</h5>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="age">Age*</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="age"
+                    id="age"
+                    required
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="gender">Gender*</label>
+                  <select
+                    name="gender"
+                    class="form-select"
+                    id="gender"
+                    required
+                  >
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label for="height">Height(<b>cm</b>)*</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="height"
+                    id="height"
+                    required
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="weight">Weight(<b>kg</b>)*</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="weight"
+                    id="weight"
+                    required
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="activity">Activity*</label>
+                  <select
+                    name="activity"
+                    class="form-select"
+                    id="activity"
+                    required
+                  >
+                    <option value="1.2">
+                      Sedentary: little or no exercise
+                    </option>
+                    <option value="1.375">
+                      Light: excercise 1-3 times/week
+                    </option>
+                    <option selected value="1.465">
+                      Moderate: exercise 4-5 times/week
+                    </option>
+                    <option value="1.55">
+                      Active: daily exercise or intense exercise 3-4 times/week
+                    </option>
+                    <option value="1.725">
+                      Very active: intense exercise 6-7 times/week
+                    </option>
+                    <option value="1.9">
+                      Extra active: very intense exercise dailt, or physical job
+                    </option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label for="unit">Result Unit*</label>
+                  <select name="unit" class="form-select" id="unit" required>
+                    <option value="0">Calories</option>
+                    <option value="1">Kilojoules</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-success" type="submit" id="calc_btn">
+                Calculate
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="calo_popup" class="calo-popup">
+          <div class="calo-content">
+            <span class="calo-close" onclick="calo_close()">&times;</span>
+            <div id="rec_calo"></div>
+            <button class="btn btn-success" onclick="calo_save()">Save</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2023 Bóng Ma Anh Quốc</p>
+    </footer>
+  </body>
+</html>

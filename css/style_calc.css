@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+  padding: 5px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.footer-content ul {
+  margin-bottom: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons i {
+  font-size: 20px;
+}
+
+.copyright {
+  margin-top: 5px;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.flex-body {
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.side-bar {
+  width: 10%;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar a {
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  /* border-bottom: 1px solid #333; */
+  width: 100%;
+  padding-left: 10px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  align-items: center;
+}
+
+.calculator h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  /* font-family: "Roboto", serif; */
+}
+
+.menu-btn {
+  padding-left: 10px;
+}
+
+.user {
+  padding-right: 10px;
+}
+
+.user img {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.user button {
+  background-color: transparent;
+  border: 0;
+  padding-right: 10px;
+}
+
+#calo_popup {
+  display: none;
+}
+
+.calo-popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.calo-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.calo-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.calo-close:hover {
+  color: #000;
+}

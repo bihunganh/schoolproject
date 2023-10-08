@@ -1,0 +1,214 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+  padding: 5px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.footer-content ul {
+  margin-bottom: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons i {
+  font-size: 20px;
+}
+
+.copyright {
+  margin-top: 5px;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.flex-body {
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.side-bar {
+  width: 10%;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.side-bar i {
+  padding-right: 3px;
+}
+
+.side-bar a {
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  /* border-bottom: 1px solid #333; */
+  width: 100%;
+  padding-left: 10px;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-top: 20px;
+}
+
+.foodlist {
+  list-style-type: none;
+}
+
+.foodlist * {
+  padding-bottom: 10px;
+  font-family: "Roboto", serif;
+}
+
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  align-items: center;
+}
+
+.menu-btn {
+  padding-left: 10px;
+  width: 10%;
+}
+
+.user {
+  padding-right: 10px;
+  width: 10%;
+}
+
+.user img {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.user button {
+  background-color: transparent;
+  border: 0;
+  padding-right: 10px;
+}
+
+.search-bar {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+}
+
+.search-field {
+  border-bottom-left-radius: 100vw;
+  border-top-left-radius: 100vw;
+  padding: 5px 10px;
+  padding-right: 0;
+  border: 1px solid #333;
+  width: 45%;
+}
+
+.search-field:focus {
+  outline: 0;
+  border: 1px solid rgb(0, 4, 255);
+}
+
+.search-bar button {
+  background-color: #d1c8c8;
+  border-top-right-radius: 100vw;
+  border-bottom-right-radius: 100vw;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  border-left: 0;
+}
+
+#selectedfood-popup {
+  display: none;
+}
+
+#cart {
+  display: none;
+}
+
+#calo_goal {
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.not-found {
+  display: none;
+}
