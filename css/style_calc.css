@@ -12,7 +12,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -83,6 +83,10 @@ footer {
   /* border-bottom: 1px solid #333; */
   width: 100%;
   padding-left: 10px;
+}
+
+.calc {
+  background-color: #d1c8c8;
 }
 
 main {

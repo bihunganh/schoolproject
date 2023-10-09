@@ -12,7 +12,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -78,16 +78,19 @@ footer {
 }
 
 .side-bar i {
-  padding-right: 3px;
+  padding-right: 0.25rem;
 }
 
 .side-bar a {
-  padding-bottom: 10px;
+  padding-bottom: 0.75rem;
   text-decoration: none;
   color: #333;
-  /* border-bottom: 1px solid #333; */
   width: 100%;
-  padding-left: 10px;
+  padding-left: 1rem;
+}
+
+.home {
+  background-color: #d1c8c8;
 }
 
 main {
