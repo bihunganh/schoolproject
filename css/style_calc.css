@@ -27,36 +27,6 @@ footer {
   text-align: center;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.footer-content ul {
-  margin-bottom: 0;
-}
-
-.footer-links li {
-  display: inline-block;
-  margin-right: 15px;
-}
-
-.footer-links a {
-  color: #333;
-  text-decoration: none;
-}
-
-.social-icons a {
-  margin-right: 10px;
-  color: #333;
-  text-decoration: none;
-}
-
-.social-icons i {
-  font-size: 20px;
-}
-
 .copyright {
   margin-top: 5px;
   color: #777;
@@ -77,12 +47,14 @@ footer {
 }
 
 .side-bar a {
-  padding-bottom: 10px;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  /* padding: 0.5em 1em; */
   text-decoration: none;
   color: #333;
   /* border-bottom: 1px solid #333; */
   width: 100%;
-  padding-left: 10px;
+  font-size: 1rem;
 }
 
 .calc {
@@ -133,7 +105,7 @@ header {
   display: none;
 }
 
-.calo-popup {
+.popup {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -144,7 +116,7 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.calo-content {
+.popup-content {
   background-color: #fefefe;
   margin: 10% auto;
   padding: 20px;
@@ -153,7 +125,7 @@ header {
   max-width: 600px;
 }
 
-.calo-close {
+.popup-close {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -161,6 +133,10 @@ header {
   cursor: pointer;
 }
 
-.calo-close:hover {
+.popup-close:hover {
   color: #000;
+}
+
+#cart {
+  display: none;
 }

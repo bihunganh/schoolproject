@@ -143,28 +143,23 @@
             </div>
           </form>
         </div>
-        <div id="calo_popup" class="calo-popup">
-          <div class="calo-content">
-            <span class="calo-close" onclick="calo_close()">&times;</span>
+        <div id="calo_popup" class="popup">
+          <div class="popup-content">
+            <span class="popup-close" onclick="calo_close()">&times;</span>
             <div id="rec_calo"></div>
             <button class="btn btn-success" onclick="calo_save()">Save</button>
           </div>
         </div>
       </main>
     </div>
-    <footer>
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+    <div id="cart" class="popup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closeCart()">&times;</span>
+        <ul id="cartlist"></ul>
+        <h4 id="total_calo">Today's total calories:</h4>
       </div>
+    </div>
+    <footer>
       <p class="copyright">&copy; 2023 Bóng Ma Anh Quốc</p>
     </footer>
   </body>

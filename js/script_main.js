@@ -13,6 +13,7 @@ let prev = "";
 let foodJSON = {};
 let userdata;
 
+// lay du lieu tu localStorage
 if (localdata === null) {
   localStorage.setItem("data", "");
 } else {
@@ -80,8 +81,6 @@ function closePopup() {
   servings.value = "";
 }
 
-// lay du lieu tu localStorage
-
 // them vao menu
 async function addToCart(index) {
   const item = await result.result[index];
@@ -96,7 +95,8 @@ async function addToCart(index) {
     foodJSON[item.food_description] = item;
     foodJSON[item.food_description].servings = yourserving;
   }
-  localStorage.setItem("data", JSON.stringify(foodJSON));
+  userdata["menu"] = foodJSON;
+  localStorage.setItem("data", JSON.stringify(userdata));
   closePopup();
 }
 
