@@ -27,7 +27,9 @@
   <body>
     <!-- chuong trinh chinh -->
     <header>
-      <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+      <div class="menu-btn">
+        <i class="fa-solid fa-bars" onclick="toggleSidebar()"></i>
+      </div>
       <div class="search-bar">
         <input
           type="text"
@@ -46,7 +48,8 @@
           id="cartbtn"
           onclick="showCart()"
         ></button>
-        <img src="#" alt="user's pfp" />
+        <!-- <img src="#" alt="user's pfp" /> -->
+        <i class="fa-solid fa-circle-user fa-2xl"></i>
       </div>
     </header>
     <div class="flex-body">

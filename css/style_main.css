@@ -117,8 +117,12 @@ header {
 }
 
 .menu-btn {
-  padding-left: 10px;
+  padding-left: 1rem;
   width: 10%;
+}
+
+.menu-btn i {
+  cursor: pointer;
 }
 
 .user {
@@ -131,12 +135,16 @@ header {
   height: 25px;
   border-radius: 100%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .user button {
   background-color: transparent;
   border: 0;
-  padding-right: 10px;
+  margin-right: 10px;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 100%;
 }
 
 .search-bar {
@@ -213,5 +221,9 @@ header {
 }
 
 .not-found {
+  display: none;
+}
+
+.hidden {
   display: none;
 }

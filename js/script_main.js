@@ -63,12 +63,14 @@ async function printfoodlist() {
 }
 
 // hien thi  cua so chi tiet do an khi chon tu list do an
-function foodDetail(event) {
+async function foodDetail(event) {
   const clickedItem = event.target;
   const itemIndex = clickedItem.dataset.index;
+  console.log(itemIndex);
   const popup = document.getElementById("selectedfood-popup");
   const popupContent = document.getElementById("popupContent");
-  popupContent.innerText = clickedItem.textContent;
+  await result;
+  popupContent.innerHTML = `${clickedItem.textContent}<br>Calories per serving: ${result.result[itemIndex].energy_kcal} calo`;
   popupContent.dataset.index = itemIndex;
   popup.style.display = "block";
 }
@@ -168,4 +170,9 @@ function totalcalo() {
     totalcal += keydata.energy_kcal * (keydata.servings / 100);
   }
   total_calo.innerText = `Today's total calories: ${totalcal} calories.`;
+}
+
+function toggleSidebar() {
+  let side_bar = document.getElementById("side_bar");
+  side_bar.classList.toggle("hidden");
 }
