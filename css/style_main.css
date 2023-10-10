@@ -96,6 +96,7 @@ footer {
 main {
   flex: 1 0 auto;
   padding-top: 20px;
+  width: 90%;
 }
 
 .foodlist {
