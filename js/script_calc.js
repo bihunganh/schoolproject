@@ -118,3 +118,9 @@ function totalcalo() {
   }
   total_calo.innerText = `Today's total calories: ${totalcal} calories.`;
 }
+
+// Bật/tắt sidebar
+function toggleSidebar() {
+  let side_bar = document.getElementById("side_bar");
+  side_bar.classList.toggle("hidden");
+}
