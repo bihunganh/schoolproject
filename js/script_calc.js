@@ -2,7 +2,7 @@ let calo;
 let localdata = localStorage.getItem("data");
 let foodJSON = {};
 if (localdata === null) {
-  localStorage.setItem("data", "");
+  localStorage.setItem("data", JSON.stringify(userdata));
 } else {
   userdata = JSON.parse(localdata);
   if (userdata.hasOwnProperty("menu")) {
