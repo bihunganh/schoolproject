@@ -6,8 +6,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/style_main.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -22,89 +22,208 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script src="js/global_script.js" defer></script>
+    <link rel="stylesheet" href="css/global_style.css" />
   </head>
 
   <body>
     <!-- chuong trinh chinh -->
     <header>
-      <div class="menu-btn">
-        <i class="fa-solid fa-bars" onclick="toggleSidebar()"></i>
-      </div>
-      <div class="search-bar">
-        <input
-          type="text"
-          class="search-field"
-          id="foodSearch"
-          placeholder="Type in the ingredient"
-        />
-        <button
-          class="fa-solid fa-magnifying-glass"
-          onclick="findFood(document.getElementById('foodSearch').value)"
-        ></button>
+      <div class="nav-bar">
+        <h1>CalorIN</h1>
+        <a href="index_main.html" class="home">Home</a>
+        <a href="index_calc.html">Calories Caculator</a>
       </div>
       <div class="user">
+        <button id="cartbtn" class="cart-btn" onclick="showCart()">
+          <img src="images/menu.png" alt="" />
+        </button>
         <button
-          class="fa-solid fa-utensils cart-btn"
-          id="cartbtn"
-          onclick="showCart()"
-        ></button>
-        <!-- <img src="#" alt="user's pfp" /> -->
-        <i class="fa-solid fa-circle-user fa-2xl"></i>
-      </div>
-    </header>
-    <div class="flex-body">
-      <div class="side-bar" id="side_bar">
-        <a href="index_main.html" class="home"
-          ><i class="fa-solid fa-house"></i>Home</a
+          popovertarget="user_detail"
+          hidden
+          class="user-btn"
+          id="user_pfp"
         >
-        <a href="index_calc.html"
-          ><i class="fa-solid fa-calculator"></i>Caculator</a
-        >
-      </div>
-      <main>
-        <!-- danh sach thuc an tim dc -->
-        <ul id="foodlist" class="foodlist"></ul>
-        <!-- man hinh 404 neu ko tim thay -->
-        <div class="not-found" id="not-found">
-          <h3>Error 404</h3>
-          <div>The food you searched is not in our database.</div>
-        </div>
-        <!-- hien thi thong tin chi tiet thuc an -->
-        <div id="selectedfood-popup" class="popup">
-          <div class="popup-content">
-            <div>
-              <span class="close" onclick="closePopup()">&times;</span>
-              <p id="popupContent"></p>
-              <p id="servings_prompt">Your servings:</p>
-              <input
-                type="number"
-                id="servings"
-                class="servings"
-                placeholder="Default: 100g"
-                min="0"
-              />
-              <i id="unit">g</i>
+          <img src="images/user.png" alt="user-pfp" />
+        </button>
+        <div class="user-detail" id="user_detail" popover="auto">
+          <div class="user-flex">
+            <div class="user-info" id="user_info">
+              <img src="images/user.png" alt="user's pic" />
+              <p style="display: inline">Username</p>
             </div>
-            <button
-              id="addToCartBtn"
-              onclick="addToCart(document.getElementById('popupContent').dataset.index);"
-            >
-              Add to your today menu
+            <button class="logout-btn" id="logout_btn" onclick="logout()">
+              Log out
             </button>
           </div>
         </div>
-        <!-- man hinh menu -->
-        <div id="cart" class="popup">
-          <div class="popup-content">
-            <span class="close" onclick="closeCart()">&times;</span>
-            <ul id="cartlist"></ul>
-            <h4 id="total_calo">Today's total calories:</h4>
+        <button
+          class="showLoginModal-btn"
+          id="showLoginModal_btn"
+          onclick="showLoginModal()"
+        >
+          Login
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="flex-body">
+        <div class="search-bar-label"><h2>Calories Tracking</h2></div>
+        <div class="search-wrap">
+          <div class="search-bar">
+            <input
+              type="search"
+              class="search-field"
+              id="foodSearch"
+              placeholder="Ingredient"
+            />
+            <button
+              onclick="findFood(document.getElementById('foodSearch').value)"
+            >
+              <img src="images/search_icon.png" alt="search_icon" />
+            </button>
+          </div>
+          <!-- danh sach thuc an tim dc -->
+          <ul id="foodlist" class="foodlist" hidden></ul>
+          <!-- man hinh 404 neu ko tim thay -->
+          <div class="not-found" id="not_found">
+            <h3>Error 404</h3>
+            <div>The food you searched is not in our database.</div>
+          </div>
+          <!-- hien thi thong tin chi tiet thuc an -->
+          <div id="selectedfood-popup" class="popup">
+            <div class="popup-content">
+              <div class="popup-header">
+                <h2>Food Detail</h2>
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+              </div>
+              <div class="popup-body">
+                <p id="popupContent"></p>
+                <div class="save-serving">
+                  <label for="servings">Enter servings:</label>
+                  <br />
+                  <input
+                    type="number"
+                    id="servings"
+                    class="servings"
+                    placeholder="Default: 100g"
+                    min="0"
+                  />
+                  <i id="unit">g</i>
+                </div>
+                <details>
+                  <summary>More details</summary>
+                  <div class="fdetails">
+                    <div class="details-grid"></div>
+                  </div>
+                </details>
+                <button
+                  id="addToCartBtn"
+                  onclick="addToCart(document.getElementById('popupContent').dataset.index);"
+                >
+                  Add to My Menu
+                </button>
+              </div>
+              <div class="popup-footer"></div>
+            </div>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
+    <!-- man hinh menu -->
+    <div id="cart" class="popup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2>Menu</h2>
+          <span class="popup-close" onclick="closeCart()">&times;</span>
+        </div>
+        <div class="popup-body">
+          <ul id="cartlist"></ul>
+          <div class="total-calo" id="showtotalcalo">
+            <h4>Total Calories</h4>
+            <div id="total_calo"></div>
+          </div>
+        </div>
+        <div class="popup-footer"></div>
+      </div>
     </div>
+    <dialog class="mymodal" id="login_modal">
+      <div class="flex-modal">
+        <span class="modal-close" onclick="closeLoginModal()">&times;</span>
+        <div class="modal-content">
+          <form action="" id="login_form" class="modal-form">
+            <label for="login_username">Username:</label>
+            <input type="text" id="login_username" required />
+            <label for="login_pwd">Password:</label>
+            <input type="password" id="login_pwd" required />
+            <button type="submit" class="login-btn" id="login_btn">
+              Login
+            </button>
+          </form>
+          <hr />
+          <div>
+            <p>
+              Forgot password ?
+              <button class="changepwd-btn" onclick="showChangepwdModal()">
+                Change password
+              </button>
+            </p>
+            <p>
+              Don't have an account ?
+              <button class="signup-btn" onclick="showSignupModal()">
+                Sign up
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="mymodal" id="signup_modal">
+      <div class="flex-modal">
+        <span class="modal-close" onclick="closeSignupModal()">&times;</span>
+        <div class="modal-content">
+          <form action="" id="signup_form" class="modal-form">
+            <label for="signup_username">Username:</label>
+            <input type="text" id="signup_username" required />
+            <label for="signup_pwd">Password:</label>
+            <input type="text" id="signup_pwd" required />
+            <label for="signup_confirm_pwd">Confirm password:</label>
+            <input type="text" id="signup_confirm_pwd" required />
+            <button type="submit" class="login-btn" id="signup_btn">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="mymodal" id="changepwd_modal">
+      <div class="flex-modal">
+        <span class="modal-close" onclick="closeChangepwdModal()">&times;</span>
+        <div class="modal-content">
+          <form action="" id="chanchangepwd_form" class="modal-form">
+            <label for="changepwd_username">Username:</label>
+            <input type="text" id="changepwd_username" required />
+            <label for="changepwd_pwd">New password:</label>
+            <input type="text" id="changepwd_pwd" required />
+            <label for="changepwd_confirm_pwd">Confirm new password:</label>
+            <input type="text" id="changepwd_confirm_pwd" required />
+            <button type="submit" class="login-btn" id="changepwd_btn">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     <footer>
-      <p class="copyright">&copy; 2023 Bóng Ma Anh Quốc</p>
+      <div class="socials">
+        <a href="#"><img src="images/fb.png" alt="fb-icon" /></a>
+        <a href="#"><img src="images/insta.png" alt="insta-icon" /></a>
+        <a href="#"><img src="images/tw.png" alt="tw-icon" /></a>
+      </div>
+      <div class="contact">
+        <div>Contact</div>
+        <a href="about.html">About</a>
+      </div>
     </footer>
   </body>
 </html>

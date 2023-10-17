@@ -7,38 +7,27 @@ const options = {
   },
 };
 
-let localdata = localStorage.getItem("data");
 let result;
 let prev = "";
-let foodJSON = {};
-let userdata = {};
 
-// lay du lieu tu localStorage
-if (localdata === null) {
-  localStorage.setItem("data", JSON.stringify(userdata));
-} else {
-  userdata = JSON.parse(localdata);
-  if (userdata.hasOwnProperty("menu")) {
-    foodJSON = userdata["menu"];
-  }
-  console.log(foodJSON);
-}
 // tim do an
 async function findFood(value) {
   if (value !== prev && value !== "") {
     prev = value;
     let foodlist = document.getElementById("foodlist");
     while (foodlist.firstChild) {
+      foodlist.hidden = true;
       foodlist.removeChild(foodlist.firstChild);
     }
     try {
       const response = await fetch(url + value, options);
       result = await response.json();
       if (result.result === undefined) {
-        let not_found = document.getElementById("not-found");
+        let not_found = document.getElementById("not_found");
         not_found.style.display = "block";
       } else {
-        let not_found = document.getElementById("not-found");
+        let not_found = document.getElementById("not_found");
+        foodlist.hidden = false;
         not_found.style.display = "none";
         console.log(result);
         printfoodlist();
@@ -70,7 +59,7 @@ async function foodDetail(event) {
   const popup = document.getElementById("selectedfood-popup");
   const popupContent = document.getElementById("popupContent");
   await result;
-  popupContent.innerHTML = `${clickedItem.textContent}<br>Calories per serving: ${result.result[itemIndex].energy_kcal} calo`;
+  popupContent.innerHTML = `${clickedItem.textContent}<br>Calories per 100g: ${result.result[itemIndex].energy_kcal} cal`;
   popupContent.dataset.index = itemIndex;
   popup.style.display = "block";
 }
@@ -102,78 +91,72 @@ async function addToCart(index) {
   closePopup();
 }
 
-// hien thi menu hom nay
-function showCart() {
-  const cart = document.getElementById("cart");
-  let cartlist = document.getElementById("cartlist");
-  if (Object.keys(foodJSON).length !== 0) {
-    for (let key in foodJSON) {
-      if (foodJSON.hasOwnProperty(key)) {
-        let keydata = foodJSON[key];
-        let cart_item = document.createElement("li");
-        let cart_item_detail = document.createElement("p");
-        let cartservings = document.createElement("input");
-        let delete_item = document.createElement("button");
-        let unit = document.createElement("span");
-        cart_item_detail.innerHTML = `${key}<br>Calories per serving: ${keydata.energy_kcal}`;
-        cartservings.setAttribute("type", "number");
-        cartservings.setAttribute("value", keydata.servings);
-        cartservings.addEventListener("input", () => {
-          let timeout;
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            foodJSON[key].servings = cartservings.value;
-            localStorage.setItem("data", JSON.stringify(foodJSON));
-            totalcalo();
-          }, 2000);
-        });
-        delete_item.textContent = "Delete this item";
-        delete_item.addEventListener("click", () => {
-          delete foodJSON[key];
-          userdata["menu"] = foodJSON;
-          localStorage.setItem("data", JSON.stringify(userdata));
-          cartlist.removeChild(cartlist.firstChild);
-          totalcalo();
-        });
-        unit.innerText = " g ";
-        cart_item.appendChild(cart_item_detail);
-        cart_item.appendChild(cartservings);
-        cart_item.appendChild(unit);
-        cart_item.appendChild(delete_item);
-        cartlist.appendChild(cart_item);
-      }
-    }
-    totalcalo();
-  } else {
-    document.getElementById("total_calo").innerText =
-      "You haven't added any items to your menu today.";
-  }
-  cart.style.display = "block";
-}
+// // hien thi menu hom nay
+// function showCart() {
+//   const cart = document.getElementById("cart");
+//   let cartlist = document.getElementById("cartlist");
+//   if (Object.keys(foodJSON).length !== 0) {
+//     for (let key in foodJSON) {
+//       if (foodJSON.hasOwnProperty(key)) {
+//         let keydata = foodJSON[key];
+//         let cart_item = document.createElement("li");
+//         let cart_item_detail = document.createElement("p");
+//         let cartservings = document.createElement("input");
+//         let delete_item = document.createElement("button");
+//         let unit = document.createElement("span");
+//         cart_item_detail.innerHTML = `${key}<br>Calories per 100g: ${keydata.energy_kcal} cal`;
+//         cartservings.setAttribute("type", "number");
+//         cartservings.setAttribute("value", keydata.servings);
+//         cartservings.addEventListener("input", () => {
+//           let timeout;
+//           clearTimeout(timeout);
+//           timeout = setTimeout(() => {
+//             foodJSON[key].servings = cartservings.value;
+//             localStorage.setItem("data", JSON.stringify(foodJSON));
+//             totalcalo();
+//           }, 2000);
+//         });
+//         delete_item.textContent = "Delete this item";
+//         delete_item.addEventListener("click", () => {
+//           delete foodJSON[key];
+//           userdata["menu"] = foodJSON;
+//           localStorage.setItem("data", JSON.stringify(userdata));
+//           cartlist.removeChild(cartlist.firstChild);
+//           totalcalo();
+//         });
+//         unit.innerText = " g ";
+//         cart_item.appendChild(cart_item_detail);
+//         cart_item.appendChild(cartservings);
+//         cart_item.appendChild(unit);
+//         cart_item.appendChild(delete_item);
+//         cartlist.appendChild(cart_item);
+//       }
+//     }
+//     totalcalo();
+//   } else {
+//     document.getElementById("showtotalcalo").innerHTML =
+//       "You haven't added any items to your menu today.";
+//   }
+//   cart.style.display = "block";
+// }
 
-// dong cua so cart
-function closeCart() {
-  const cart = document.getElementById("cart");
-  let cartlist = document.getElementById("cartlist");
-  cart.style.display = "none";
-  while (cartlist.firstChild) {
-    cartlist.removeChild(cartlist.firstChild);
-  }
-}
+// // dong cua so cart
+// function closeCart() {
+//   const cart = document.getElementById("cart");
+//   let cartlist = document.getElementById("cartlist");
+//   cart.style.display = "none";
+//   while (cartlist.firstChild) {
+//     cartlist.removeChild(cartlist.firstChild);
+//   }
+// }
 
-// tinh tong calo
-function totalcalo() {
-  let total_calo = document.getElementById("total_calo");
-  let totalcal = 0;
-  for (let key in foodJSON) {
-    let keydata = foodJSON[key];
-    totalcal += keydata.energy_kcal * (keydata.servings / 100);
-  }
-  total_calo.innerText = `Today's total calories: ${totalcal} calories.`;
-}
-
-// Bật/tắt sidebar
-function toggleSidebar() {
-  let side_bar = document.getElementById("side_bar");
-  side_bar.classList.toggle("hidden");
-}
+// // tinh tong calo
+// function totalcalo() {
+//   let total_calo = document.getElementById("total_calo");
+//   let totalcal = 0;
+//   for (let key in foodJSON) {
+//     let keydata = foodJSON[key];
+//     totalcal += keydata.energy_kcal * (keydata.servings / 100);
+//   }
+//   total_calo.innerText = `${totalcal}`;
+// }

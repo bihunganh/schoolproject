@@ -1,0 +1,36 @@
+#cart {
+  display: none;
+}
+
+main {
+  background-image: url(../images/about_bg.png);
+  background-repeat: repeat;
+}
+
+main div {
+  background-color: #464646;
+  color: #cdcdcd;
+  width: 60%;
+  height: fit-content;
+  margin-block: auto;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+main h1 {
+  padding-block: 1.5rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+main div p {
+  margin-inline: 1.5rem;
+  font-size: 1rem;
+}
+
+main div p span {
+  color: #1cd6ff;
+}

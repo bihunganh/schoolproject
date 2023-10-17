@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calories Calculator</title>
+    <title>About Us</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,14 +15,13 @@
       href="https://fonts.googleapis.com/css?family=Inter"
     />
 
-    <link rel="stylesheet" href="css/style_calc.css" />
+    <link rel="stylesheet" href="css/style_about.css" />
     <link rel="stylesheet" href="css/global_style.css" />
     <script
       src="https://kit.fontawesome.com/63c89c613b.js"
       crossorigin="anonymous"
       defer
     ></script>
-    <script src="js/script_calc.js" defer></script>
     <script src="js/global_script.js" defer></script>
   </head>
 
@@ -66,110 +65,27 @@
       </div>
     </header>
     <main>
-      <div class="calc-wrap">
-        <div class="container my-5">
-          <form class="card" id="calo_form" action="">
-            <div class="card-header text-center">
-              <h5>Calories Calculator</h5>
-            </div>
-            <div class="card-body">
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="age">Age*</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="age"
-                    id="age"
-                    min="1"
-                    required
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <label for="gender">Gender*</label>
-                  <select
-                    name="gender"
-                    class="form-select"
-                    id="gender"
-                    required
-                  >
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                  </select>
-                </div>
-                <div class="col-sm-6">
-                  <label for="height">Height(<b>cm</b>)*</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="height"
-                    id="height"
-                    min="1"
-                    required
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <label for="weight">Weight(<b>kg</b>)*</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="weight"
-                    id="weight"
-                    min="1"
-                    required
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <label for="activity">Activity*</label>
-                  <select
-                    name="activity"
-                    class="form-select"
-                    id="activity"
-                    required
-                  >
-                    <option value="1.2">
-                      Sedentary: little or no exercise
-                    </option>
-                    <option value="1.375">
-                      Light: excercise 1-3 times/week
-                    </option>
-                    <option selected value="1.465">
-                      Moderate: exercise 4-5 times/week
-                    </option>
-                    <option value="1.55">
-                      Active: daily exercise or intense exercise 3-4 times/week
-                    </option>
-                    <option value="1.725">
-                      Very active: intense exercise 6-7 times/week
-                    </option>
-                    <option value="1.9">
-                      Extra active: very intense exercise dailt, or physical job
-                    </option>
-                  </select>
-                </div>
-                <div class="col-sm-6">
-                  <label for="unit">Result Unit*</label>
-                  <select name="unit" class="form-select" id="unit" required>
-                    <option value="0">Calories</option>
-                    <option value="1">Kilojoules</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <button class="btn btn-success" type="submit" id="calc_btn">
-                Calculate
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div id="calo_popup" class="popup">
-        <div class="popup-content">
-          <span class="popup-close" onclick="calo_close()">&times;</span>
-          <div id="rec_calo"></div>
-          <button class="btn btn-success" onclick="calo_save()">Save</button>
-        </div>
+      <div>
+        <h1>CalorIN</h1>
+        <p>
+          Trang web được phát triển bởi những coder nhiệt huyết đến từ nhóm
+          <span>Bóng Ma Anh Quốc</span>.
+        </p>
+        <p>
+          Chúng tôi hướng đến những người dùng đang có nhu cầu cải thiện sức
+          khỏe và vóc dáng.
+        </p>
+        <p>
+          Trang web sẽ cho bạn thông tin chi tiết về từng món ăn trong tính năng
+          <span>Calories Tracking</span> và lượng calories bạn cần nạp vào người
+          để phù hợp với nhưu cầu tăng, giảm cân của bạn trong tính năng
+          <span>Calories Calculator</span>.
+        </p>
+        <p>
+          Ngoài ăn uống ra, hay thường xuyên tập luyện và vận động để có một sức
+          khỏe tốt nhất. Hãy là một người có trách nhiệm với bản thân!
+        </p>
+        <p>Cảm ơn vì đã dùng website của chúng tôi!</p>
       </div>
     </main>
     <!-- man hinh menu -->
